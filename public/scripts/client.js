@@ -3,9 +3,10 @@ $(document).ready(onReady);
 function onReady() {
     getList();
     $('#submitButton').on('click', addTask);
+    $('#container').on('click', '.completeButton', completeTask);
+    $('#container').on('click', '.deleteButton', deleteTask);
 }
 
-// GET req to server to obtain array of tasks
 function getList() {
     $.ajax({
         method: 'GET',
@@ -17,12 +18,10 @@ function getList() {
     });
 }   // end getList func
 
-// POST req to server to add a task
+
 function addTask() {
     var $task = $('#taskIn').val();
-    // clear value
     $('#taskIn').val('');
-    // ajax post
     $.ajax({
         method: 'POST',
         url: '/tasks',
@@ -36,7 +35,7 @@ function addTask() {
     getList();
 } // end addTask funct
 
-// append info to DOM
+
 function appendTasks(taskArray) {
     $('#container').empty();
     for (var i in taskArray) {
@@ -47,3 +46,11 @@ function appendTasks(taskArray) {
         $('#container').append($row);
     }
 }   // end appendTasks funct
+
+function completeTask(){
+    // ajax PUT call?
+} // end completeTask funct
+
+function deleteTask(){
+    // ajax DELETE call
+} // end deleteTask funct

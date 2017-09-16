@@ -1,7 +1,7 @@
 var router = require('express').Router();
 var pool = require('../modules/pool');
 
-// get request to database
+// get request to database for all rows
 router.get('/', function (req, res) {
     pool.connect(function (conErr, client, done) {
         if (conErr) {
@@ -22,6 +22,7 @@ router.get('/', function (req, res) {
     });
 });
 
+// POST req to DB to insert new task
 router.post('/', function(req, res){
     var taskInfo = req.body.task;
     pool.connect(function(conErr, client, done){
@@ -38,16 +39,9 @@ router.post('/', function(req, res){
                 } else {
                     res.sendStatus(201);
                 }
-            })
+            });
         }
-    })
-})
-
-// router.post('/', function (req, res) {
-//     var taskInfo = req.body.task;
-//     array.push(taskInfo);
-//     console.log('Task info from client: ', taskInfo);
-//     res.sendStatus(200);
-// });
+    });
+});
 
 module.exports = router;

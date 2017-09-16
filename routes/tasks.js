@@ -63,4 +63,23 @@ router.delete('/:id', function(req, res){
     });
 });
 
+router.put('/:id', function(req, res){
+    var taskId = req.params.id;
+    pool.connect(function(conErr, client, done){
+        if (conErr) {
+            console.log('PUT Router conn err in tasks.js: ', conErr);
+            res.sendStatus(500);
+        } else {
+            client.query('UPDATE tasks SET completed = true WHERE id=$1;', [taskId], function(queryErr, resultObj){
+                if (queryErr){
+                    console.log('Query error in tasks.js: ', queryErr);
+                    res.sendStatus(500)
+                } else {
+                    res.sendStatus(202);
+                }
+            });
+        }
+    });
+});
+
 module.exports = router;

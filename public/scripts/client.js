@@ -40,24 +40,45 @@ function appendTasks(taskArray) {
     $('#container').empty();
     for (var i in taskArray) {
         var $row = $('#container').append('<tr></tr>');
-        $row.append('<td>' + taskArray[i].task + '</td>');
-        $row.append('<td><button class="completeButton">Complete</button></td>');
-        $row.append('<td><button class="deleteButton" data-id=' + taskArray[i].id + '>Delete</button></td>');
-        $('#container').append($row);        
+        if (taskArray[i].completed) {                   // set class to completed to unfinished
+            $row.append('<td class="completed">' + taskArray[i].task + '</td>');
+        } else {
+            $row.append('<td class="unfinished">' + taskArray[i].task + '</td>');
+        }
+        $row.append('<td><button class="completeButton" data-id="' + taskArray[i].id + '"data-completed=' + taskArray[i].completed + '>Complete</button></td>');
+        $row.append('<td><button class="deleteButton" data-id="' + taskArray[i].id + '">Delete</button></td>');
+        $('#container').append($row);
     }
 }   // end appendTasks funct
 
-function completeTask(){
-    // ajax PUT call?
+function completeTask() {
+    var taskId = $(this).data('id');          
+    var completed = $(this).data('completed');      // yields 'true' or 'false' string
+    if (completed) {
+        console.log('already completed!');      //  append 'already completed!' to DOM !!
+        return;
+    } else {
+        console.log('false... need to run a PUT call!');        
+        // ajax PUT call
+        $.ajax({
+            method: 'PUT',
+            url: '/tasks/' + taskId,
+            data: taskId,
+            success: function (res) {
+                console.log(res);
+                getList();
+            }
+        });
+    }
 } // end completeTask funct
 
-function deleteTask(){              // send id of task to be deleted to server
+function deleteTask() {              // send id of task to be deleted to server
     var taskId = $(this).data('id');     // grab id of deleted button/row, store as INT
     $.ajax({
         method: 'DELETE',
         url: '/tasks/' + taskId,
         data: taskId,
-        success: function(res){
+        success: function (res) {
             console.log(res);
             getList();
         }

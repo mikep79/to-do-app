@@ -9,8 +9,12 @@ Base mode:
 - [x] Append info to DOM in table form. Add complete and delete buttons.
 - [x] Add event listeners for complete and delete task buttons.
 - [x] Add DELETE req to server.
-- [ ] Add styles folder and file, and add bg-color classes.
-- [ ] Use PUT req to update boolean value of completed?
+- [x] Add styles folder and file, source, and add bg-color classes.
+- [ ] Use PUT req to update boolean value of completed.
+    - [x] Grab completed value (false).
+    - [ ] Determine POSTICO syntax for updating boolean value.
+    - [ ] Use PUT req to send value to server. Routes where?
+    - [ ] Route updates variable to True. Return response. Reappend with getList.
 - [ ] Style page. Bootstrap?
 
 Hard Mode:

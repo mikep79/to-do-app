@@ -7,8 +7,8 @@ Base mode:
 - [x] Retrieve get array.
 - [x] Set up POST req to DB.
 - [x] Append info to DOM in table form. Add complete and delete buttons.
-- [ ] Add event listeners for complete and delete task buttons.
-- [ ] Add DELETE req to server.
+- [x] Add event listeners for complete and delete task buttons.
+- [x] Add DELETE req to server.
 - [ ] Add styles folder and file, and add bg-color classes.
 - [ ] Use PUT req to update boolean value of completed?
 - [ ] Style page. Bootstrap?

@@ -44,4 +44,23 @@ router.post('/', function(req, res){
     });
 });
 
+router.delete('/:id', function(req, res){
+    var taskId = req.params.id;         // store sent taskId as INT
+    pool.connect(function(conErr, client, done){
+        if (conErr){
+            console.log('delete Router conn err in tasks.js: ', conErr);
+            res.sendStatus(500);            
+        } else {
+            client.query('DELETE FROM tasks WHERE id = $1;', [taskId], function (queryErr, resultObj){
+                if (queryErr){
+                    console.log('Query error in tasks.js: ', queryErr);
+                    res.sendStatus(500);                    
+                } else {
+                    res.sendStatus(202);
+                }
+            });
+        }
+    });
+});
+
 module.exports = router;

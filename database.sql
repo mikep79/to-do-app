@@ -1,0 +1,1 @@
+// inserts create table template

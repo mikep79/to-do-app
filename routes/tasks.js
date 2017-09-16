@@ -22,6 +22,27 @@ router.get('/', function (req, res) {
     });
 });
 
+router.post('/', function(req, res){
+    var taskInfo = req.body.task;
+    pool.connect(function(conErr, client, done){
+        if (conErr){
+            console.log('Err in task con: ', conErr);
+            res.sendStatus(500);
+        } else {
+            client.query('INSERT INTO tasks (task, completed) VALUES ($1, $2);', [taskInfo, false], 
+            function (queryErr, resultObj){
+                done();
+                if (queryErr){
+                    console.log('QueryErr in tasks.js: ', queryErr);
+                    res.sendStatus(500);
+                } else {
+                    res.sendStatus(201);
+                }
+            })
+        }
+    })
+})
+
 // router.post('/', function (req, res) {
 //     var taskInfo = req.body.task;
 //     array.push(taskInfo);

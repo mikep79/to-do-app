@@ -10,11 +10,12 @@ Base mode:
 - [x] Add event listeners for complete and delete task buttons.
 - [x] Add DELETE req to server.
 - [x] Add styles folder and file, source, and add bg-color classes.
-- [ ] Use PUT req to update boolean value of completed.
-    - [x] Grab completed value (false).
-    - [ ] Determine POSTICO syntax for updating boolean value.
-    - [ ] Use PUT req to send value to server. Routes where?
-    - [ ] Route updates variable to True. Return response. Reappend with getList.
-- [ ] Style page. Bootstrap?
+- [x] Use PUT req to update boolean value of completed.
+    - [x] Grab completed value (false.. needed?) and id.
+    - [x] Determine POSTICO syntax for updating boolean value.
+        'UPDATE tasks SET completed = true WHERE id=46;'
+    - [x] Use PUT req to send value to server to route tasks/:id.
+    - [x] Route updates variable to True. Return response. Reappend with getList.
+- [ ] Style page. Bootstrap? Delete confirm.
 
 Hard Mode:

@@ -5,38 +5,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Tasks</title>
+    <title>To Do List</title>
     <script src="./vendors/jquery-3.2.1.min.js"></script>
     <script src="./scripts/client.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
     <link href="./styles/main.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>
-    <h1>Tasks</h1>
-    <main>
+    <header>
+        <h1>To Do List</h1>
         <section id="field">
             <input type="text" id="taskIn" placeholder="Enter task">
-            <button id="submitButton">Click</button>
+            <button id="submitButton">Add task</button>
         </section>
-        <section >
+    </header>
+    <main>
+        <section>
             <table class="dataField">
                 <tableHeader>
-                    <th id="col1">Task to complete</th>
+                    <th class="col">Task to complete</th>
                 </tableHeader>
                 <tbody id="container">
                 </tbody>
             </table>
-
         </section>
-        <section >
+        <section>
             <table class="dataField">
                 <tableHeader>
-                    <th id="col2">Completed Tasks</th>
+                    <th class="col">Completed Tasks</th>
                 </tableHeader>
                 <tbody id="container2">
                 </tbody>
             </table>
-
         </section>
     </main>
 </body>

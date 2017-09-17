@@ -19,3 +19,7 @@ Base mode:
 - [ ] Style page. Bootstrap? Delete confirm.
 
 Hard Mode:
+- [x] Append info to separate tables.
+
+Pro Mode: 
+- [x] Add delete confirmation.

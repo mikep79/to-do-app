@@ -1,8 +1,21 @@
 body {
     margin: 30px;
+    font-family: Oswald, arial, serif;
+    font-size: 110%;
+    width: 600px;
+    background-color: rgba(134, 193, 225, 0.47)
 }
+
+header {
+    text-align: center;
+}
+
 h1 {
-    font-family: helvetica, serif, arial;
+    letter-spacing: 3px;
+}
+
+#taskIn {
+    height: 16px;
 }
 
 .dataField {
@@ -13,12 +26,30 @@ h1 {
 
 .unfinished {
     background-color: #D4C7C7;
+    border-style: solid;
+    border-width: 1px;
 }
 
 .completed {
     background-color: #928686;
+    border-style: solid;
+    border-width: 1px;
 }
 
-#col1 {
+.col {
     width: 300px;
+}
+
+#submitButton {
+    margin-left: 20px;
+}
+
+.deleteButton {
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.completeButton {
+    margin-left: 20px;
+    margin-right: 0px;
 }

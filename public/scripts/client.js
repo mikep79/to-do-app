@@ -21,6 +21,10 @@ function getList() {
 
 function addTask() {
     var $task = $('#taskIn').val();
+    if ($task === '') {
+        alert('Please enter a task.');
+        return;
+    }
     $('#taskIn').val('');
     $.ajax({
         method: 'POST',
@@ -77,7 +81,7 @@ function completeTask() {
 } // end completeTask funct
 
 function deleteTask() {              // send id of task to be deleted to server
-    var confirmed = confirm('Are you sure you want to delete this item?');  //returns boolean
+    var confirmed = confirm('Are you sure you want to delete this task?');  //returns boolean
     if (confirmed) {
         var taskId = $(this).data('id');     // grab id of deleted button/row, store as INT
         $.ajax({

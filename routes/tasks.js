@@ -51,7 +51,8 @@ router.delete('/:id', function(req, res){
             console.log('delete Router conn err in tasks.js: ', conErr);
             res.sendStatus(500);            
         } else {
-            client.query('DELETE FROM tasks WHERE id = $1;', [taskId], function (queryErr, resultObj){
+            var queryStr = 'DELETE FROM tasks WHERE id = $1;';
+            client.query(queryStr, [taskId], function (queryErr, resultObj){
                 done();
                 if (queryErr){
                     console.log('Query error in tasks.js: ', queryErr);
@@ -71,7 +72,8 @@ router.put('/:id', function(req, res){
             console.log('PUT Router conn err in tasks.js: ', conErr);
             res.sendStatus(500);
         } else {
-            client.query('UPDATE tasks SET completed = true WHERE id=$1;', [taskId], function(queryErr, resultObj){
+            var queryStr = 'UPDATE tasks SET completed = true WHERE id=$1;';
+            client.query(queryStr, [taskId], function(queryErr, resultObj){
                 done();
                 if (queryErr){
                     console.log('Query error in tasks.js: ', queryErr);

@@ -52,6 +52,7 @@ router.delete('/:id', function(req, res){
             res.sendStatus(500);            
         } else {
             client.query('DELETE FROM tasks WHERE id = $1;', [taskId], function (queryErr, resultObj){
+                done();
                 if (queryErr){
                     console.log('Query error in tasks.js: ', queryErr);
                     res.sendStatus(500);                    
@@ -71,6 +72,7 @@ router.put('/:id', function(req, res){
             res.sendStatus(500);
         } else {
             client.query('UPDATE tasks SET completed = true WHERE id=$1;', [taskId], function(queryErr, resultObj){
+                done();
                 if (queryErr){
                     console.log('Query error in tasks.js: ', queryErr);
                     res.sendStatus(500)

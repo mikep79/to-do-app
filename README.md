@@ -16,7 +16,7 @@ Base mode:
         'UPDATE tasks SET completed = true WHERE id=46;'
     - [x] Use PUT req to send value to server to route tasks/:id.
     - [x] Route updates variable to True. Return response. Reappend with getList.
-- [ ] Style page. Bootstrap? Delete confirm.
+- [x] Style page.
 
 Hard Mode:
 - [x] Append info to separate tables.

@@ -21,7 +21,8 @@ function getList() {
 
 function addTask() {
     var $task = $('#taskIn').val();
-    if ($task === '') {
+    // console.log('$task: ', $task);
+    if ($task === '' || $task === null) {
         alert('Please enter a task.');
         return;
     }

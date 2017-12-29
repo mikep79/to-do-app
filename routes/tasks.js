@@ -14,7 +14,7 @@ router.get('/', function (req, res) {
                     console.log('Tasks.js error: ', queryErr);
                     res.sendStatus(500);
                 } else {
-                    console.log(resultObj.rows);
+                    // console.log(resultObj.rows);
                     res.send(resultObj.rows);
                 }
             });
@@ -25,7 +25,7 @@ router.get('/', function (req, res) {
 // POST req to DB to insert new task
 router.post('/', function(req, res){
     var taskInfo = req.body.task;
-    console.log('server log: ', taskInfo);
+    // console.log('Task to be added: ', taskInfo);
     
     pool.connect(function(conErr, client, done){
         if (conErr){

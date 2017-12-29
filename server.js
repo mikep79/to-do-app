@@ -12,10 +12,11 @@ app.listen(port, function () {
     console.log('listening on port: ', port);
 });
 
-//middleware
-//app.use(bodyParser.urlencoded({extended: true}));
-// ng
+//middleware for jQuery appending
+app.use(bodyParser.urlencoded({extended: true}));
+// middleware for ng appending
 app.use(bodyParser.json());
+
 app.use(express.static('public'));
 
 //routes

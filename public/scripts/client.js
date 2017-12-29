@@ -49,7 +49,7 @@ function appendTasks(taskArray) {
         var $row2 = $('#container2').append('<tr></tr>');
         if (taskArray[i].completed) {                   // append completed tasks
             $row2.append('<td class="completed">' + taskArray[i].task + '</td>');
-            $row2.append('<td><button class="deleteButton" data-id="' + taskArray[i].id + '">Delete</button></td>');
+            $row2.append('<td><button class="deleteButton" data-id="' + taskArray[i].id + '"' + 'data-completed="' + taskArray[i].completed + ' ">Delete</button></td>');
             $('#container2').append($row2);
         } else {                                    // append unfinished tasks
             $row.append('<td class="unfinished">' + taskArray[i].task + '</td>');
@@ -63,6 +63,7 @@ function appendTasks(taskArray) {
 function completeTask() {
     var taskId = $(this).data('id');
     var completed = $(this).data('completed');      // yields 'true' or 'false' string
+    // console.log('completed: ', completed);
     if (completed) {
         console.log('already completed!');      //  append 'already completed!' to DOM !!
         return;
@@ -82,8 +83,12 @@ function completeTask() {
 } // end completeTask funct
 
 function deleteTask() {              // send id of task to be deleted to server
-    var confirmed = confirm('Are you sure you want to delete this task?');  //returns boolean
-    if (confirmed) {
+    var completed = $(this).data('completed');
+    // prompt user if task not completed yet
+    if (!completed){
+        var confirmed = confirm('Are you sure you want to delete this task?');  //returns boolean
+    }
+    if (confirmed || completed) {
         var taskId = $(this).data('id');     // grab id of deleted button/row, store as INT
         $.ajax({
             method: 'DELETE',

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>To Do List</title>
+    <script src="./vendors/angular.min.js"></script>
+    <script src="./scripts/app.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
+    <link href="./styles/main.css" rel="stylesheet" type="text/css">
+</head>
+
+<body ng-app='myApp' ng-controller='ListController as LC'>
+    <header>
+        <h1>To Do List</h1>
+        <section id="field">
+            <input ng-model='LC.input' type="text" placeholder="Enter task">
+            <button ng-click='LC.addTask()'>Add task</button>
+            <table>
+                <tableHeader>
+                    <th class="col">Tasks</th>
+                </tableHeader>
+                <tbody id="container">
+                    <tr ng-repeat='eachItem in LC.taskList' ng-if="!eachItem.completed">
+                        <td>
+                            {{eachItem.task}}
+                        </td>
+                        <td>
+                            <button ng-click='LC.deleteTask(eachItem.id)'>Delete</button>
+                        </td>
+                        <td>
+                            <button ng-click='LC.completeTask(eachItem.id)'>Completed</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section>
+            <table>
+                <tableHeader>
+                    <th class="col">Completed Tasks</th>
+                </tableHeader>
+                <tbody>
+                    <tr ng-repeat='eachItem in LC.taskList' ng-if="eachItem.completed">
+                        <td>
+                            {{ eachItem.task }}
+                        </td>
+                        <td>
+                            <button ng-click='LC.deleteTask(eachItem.id)'>Delete</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </header>
+</body>
+
+</html>

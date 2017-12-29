@@ -13,7 +13,9 @@ app.listen(port, function () {
 });
 
 //middleware
-app.use(bodyParser.urlencoded({extended: true}));
+//app.use(bodyParser.urlencoded({extended: true}));
+// ng
+app.use(bodyParser.json());
 app.use(express.static('public'));
 
 //routes

@@ -25,6 +25,8 @@ router.get('/', function (req, res) {
 // POST req to DB to insert new task
 router.post('/', function(req, res){
     var taskInfo = req.body.task;
+    console.log('server log: ', taskInfo);
+    
     pool.connect(function(conErr, client, done){
         if (conErr){
             console.log('Err in task con: ', conErr);

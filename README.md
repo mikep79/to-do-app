@@ -2,10 +2,10 @@
 To Do is a CRUD app (Create-Read-Update-Delete) that compares each function in jQuery to that used in AngularJS. The user enters a task to complete, which is then posted to a pSQL database. The task can then be "completed" (updated), or deleted. When the task is marked as completed, it is displayed in the lower table.
 
 <p>
-    <img src="images/1.png" width="400px">
+    <img src="images/1.png" width="600px">
 </p>
 <p>
-    <img src="images/2.png" width="400px">
+    <img src="images/2.png" width="600px">
 </p>
 
 ## Change between jQuery and AngularJS versions
